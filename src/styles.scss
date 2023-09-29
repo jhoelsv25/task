@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "~@ng-select/ng-select/themes/default.theme.css";
+body {
+  font-family: "Roboto", sans-serif;
+}
+/* Personaliza la barra de desplazamiento horizontal */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccd2db;
+  border-radius: 6px;
+}
+
+/* Personaliza la barra de desplazamiento vertical */
+::-webkit-scrollbar-vertical {
+  width: 7px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background: #facc15;
+  border-radius: 5px;
+}
+
+/* Cambia la apariencia de la barra de desplazamiento en Firefox */
+/* Esto es necesario para Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #facc15 #f1f1f1;
+}
+
+::selection {
+  background-color: #35ecc5;
+  color: black;
+}

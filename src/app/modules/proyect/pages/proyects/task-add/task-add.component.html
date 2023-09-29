@@ -1,0 +1,21 @@
+<div class="h-80  ">
+    <div class="fixed inset-0 z-50 flex items-center overflow-y-auto justify-center p-4 sm:p-0">
+      <div
+        class="mx-auto overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-xl sm:w-full sm:max-w-xl"
+      >
+        <div class="relative p-6">
+          <button
+            (click)="close()"
+            type="button"
+            class="absolute top-4 right-4 dark:text-slate-100 rounded-lg p-1 text-center font-medium text-secondary-500 transition-all hover:bg-secondary-100"
+          >
+            <i class="fa-regular fa-circle-xmark text-xl"></i>
+          </button>
+          <h3 class="text-lg font-medium text-center text-secondary-900 dark:text-slate-300"> {{header | titlecase}}</h3>
+          <div class="mt-2 ">
+           <form-team />
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+[
+    {
+        "email": "admin@example.com",
+        "password": "admin",
+        "profile": {
+            "name": "Juan",
+            "lastName": "Pérez",
+            "age": 28,
+            "description": "Descripción del usuario",
+            "dateCreated": "2023-09-25T09:00:00Z",
+            "titleWork": "Desarrollador",
+            "avatar": "juan_avatar.jpg",
+            "cargo": "Cargo Ejemplo"
+        },
+        "data": {
+            "task": [
+                {
+                    "title": "Tarea 1",
+                    "description": "Descripción de la tarea 1",
+                    "team": "Equipo 1",
+                    "nivel": "Basic",
+                    "state": "Pendient",
+                    "date": "2023-09-26T14:30:00Z"
+                },
+                {
+                    "title": "Tarea 2",
+                    "description": "Descripción de la tarea 2",
+                    "team": "Equipo 2",
+                    "nivel": "Intermediate",
+                    "state": "Progress",
+                    "date": "2023-09-27T10:15:00Z"
+                },
+                {
+                    "title": "Tarea 3",
+                    "description": "Descripción de la tarea 2",
+                    "team": "Equipo 2",
+                    "nivel": "Intermediate",
+                    "state": "Progress",
+                    "date": "2023-09-27T10:15:00Z"
+                }
+            ],
+            "team": [
+                {
+                    "title": "Equipo 1",
+                    "description": "Descripción del Equipo 1",
+                    "alias": "Alias Equipo 1",
+                    "dateCreated": "2023-09-26T09:30:00Z",
+                    "friends": [
+                        {
+                            "name": "Jose",
+                            "lastName": "Sanchez",
+                            "age": 30,
+                            "description": "Soy un desarrollador web apasionado por la programación...",
+                            "dateCreated": "2023-09-28T08:45:00Z",
+                            "titleWork": "Desarrollador Web",
+                            "avatar": "https://www.pulpowms.com/hs-fs/hubfs/imagen-person.webp?width=353&height=432&name=imagen-person.webp",
+                            "cargo": "Developer Frontend"
+                        },
+                        {
+                            "name": "María",
+                            "lastName": "González",
+                            "age": 32,
+                            "description": "Diseñadora gráfica con experiencia en diseño de interfaces de usuario....",
+                            "dateCreated": "2023-09-29T11:00:00Z",
+                            "titleWork": "Diseñadora Gráfica",
+                            "avatar": "https://www.pulpowms.com/hs-fs/hubfs/imagen-girl.webp?width=300&height=365&name=imagen-girl.webp",
+                            "cargo": "UI/UX"
+                        }
+                        ,
+                        {
+                            "name": "Carlos ",
+                            "lastName": "Martínez",
+                            "age": 32,
+                            "description": "Ingeniero de software con experiencia en desarrollo de aplicaciones móviles....",
+                            "dateCreated": "2023-09-29T11:00:00Z",
+                            "titleWork": "Ingeniero de Software",
+                            "avatar": "https://www.pulpowms.com/hs-fs/hubfs/imagen-person.webp?width=353&height=432&name=imagen-person.webp",
+                            "cargo": "Developer mobile"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "email": "demo@example.com",
+        "password": "demo",
+        "profile": {
+            "name": "María",
+            "lastName": "González",
+            "age": 35,
+            "description": "Descripción de María",
+            "dateCreated": "2023-09-25T12:45:00Z",
+            "titleWork": "Diseñadora",
+            "avatar": "maria_avatar.jpg",
+            "cargo": "Cargo de Diseño"
+        },
+        "data": {
+            "task": [
+                {
+                    "title": "Tarea 3",
+                    "description": "Descripción de la tarea 3",
+                    "team": "Equipo 3",
+                    "nivel": "Advanced",
+                    "state": "Pendient",
+                    "date": "2023-09-28T15:30:00Z"
+                }
+            ],
+            "team": [
+                {
+                    "title": "Equipo 3",
+                    "description": "Descripción del Equipo 3",
+                    "alias": "Alias Equipo 3",
+                    "dateCreated": "2023-09-28T10:00:00Z",
+                    "friends": [
+                        {
+                            "name": "Laura ",
+                            "lastName": "Rodríguez",
+                            "age": 29,
+                            "description": "Consultora de marketing con habilidades en análisis de datos....",
+                            "dateCreated": "2023-09-28T11:30:00Z",
+                            "titleWork": "Consultora de Marketing",
+                            "avatar": "https://www.pulpowms.com/hs-fs/hubfs/imagen-girl.webp?width=300&height=365&name=imagen-girl.webp",
+                            "cargo": "Consultor"
+                        },
+                        {
+                            "name": "Pedro ",
+                            "lastName": "Sánchez",
+                            "age": 32,
+                            "description": "Analista financiero con experiencia en modelado financiero y proyecciones....",
+                            "dateCreated": "2023-09-29T11:00:00Z",
+                            "titleWork": "Analista Financiero",
+                            "avatar": "https://www.pulpowms.com/hs-fs/hubfs/imagen-person.webp?width=353&height=432&name=imagen-person.webp",
+                            "cargo": "Anaytics"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,47 @@
+<section class="w-full bg-white px-5">
+  <h1 class="text-4xl text-black font-bold">My friends</h1>
+
+  <filters></filters>
+  <div
+    *ngIf="friendsList().length > 0"
+    class="w-full bg-white flex gap-3 flex-wrap mt-5"
+  >
+    <div
+      *ngFor="let friend of friendsList()"
+      class="shadow-lg rounded-xl w-96 max-lg:w-full p-3 my-2 bg-white dark:bg-slate-800 relative overflow-hidden flex place-content-between py-3"
+    >
+      <div class="w-full h-full flex flex-col place-content-between">
+        <div class="flex items-center border-yellow-400 border-b-2 mb-2 py-1">
+          <img
+            class="w-10 h-10 object-cover rounded-full"
+            alt="User avatar"
+            [src]="friend.avatar"
+          />
+
+          <div class="pl-3">
+            <div class="font-medium text-black dark:text-white">
+              {{ friend.name }} {{ friend.lastName }}
+            </div>
+            <div class="text-gray-400 text-sm dark:text-slate-400">
+              {{ friend.cargo }}
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <p class="text-gray-800 text-sm font-medium mb-1 dark:text-slate-50">
+            Working On:
+          </p>
+          <p class="text-gray-800 text-xl font-medium mb-1 dark:text-slate-200">
+            {{ friend.titleWork }}
+          </p>
+          <p class="text-yellow-500 text-xs font-medium mb-2">
+            from: {{ friend.dateCreated | date }}
+          </p>
+          <p class="text-gray-400 text-sm mb-2">
+            {{ friend.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+section{
+    height: calc(100vh - 6rem);
+}
+::ng-deep .ng-select .ng-select-container {
+    border: none;
+}
+::ng-deep .ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container{
+ box-shadow: none;
+}

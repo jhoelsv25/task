@@ -1,0 +1,58 @@
+<section class="w-full flex max-md:flex-col pt-5 max-md:pt-2 overflow-y-auto">
+  <div class="w-3/4 max-lg:w-1/2 max-md:w-full flex max-lg:flex-col">
+    <div class="w-1/2 max-lg:w-full h-full">
+      <div class="flex flex-col px-5 h-full">
+        <h1 class="text-3xl text-black font-bold">You've got</h1>
+        <h2 class="text-3xl text-black font-bold">8 tasks today 📝</h2>
+        <app-search></app-search>
+        <report-tasks></report-tasks>
+      </div>
+    </div>
+    <div class="w-1/2 max-lg:w-full max-md:mt-10 px-5">
+      <h2 class="text-3xl text-black font-bold py-3">Your teams 👨‍👩‍👧</h2>
+      <div
+        class="w-3/4 max-md:w-full rounded-lg bg-yellow-300 shadow-gray-200 shadow-lg h-24 flex items-center justify-around"
+      >
+        <span class="block">
+          <h2 class="text-black font-medium">Proyect time tracker</h2>
+          <h5 class="text-gray-500 text-sm font-light">
+            you can start traking
+          </h5>
+        </span>
+        <span
+          class="bg-black w-10 h-10 rounded-xl flex items-center justify-center"
+        >
+          <i class="fa-solid fa-play text-lg text-white"></i>
+        </span>
+      </div>
+      <report-team />
+  
+    </div>
+  </div>
+  <div class="w-1/4 max-lg:w-1/2 max-md:w-full mt-5 p-5">
+    <div
+      class="w-full rounded-lg shadow-gray-200 shadow-lg h-24 flex items-center justify-around"
+    >
+      <span class="block">
+        <h2 class="text-black">Proyect time tracker</h2>
+        <h5 class="text-gray-400 text-sm font-light">you can start traking</h5>
+      </span>
+      <span
+        class="bg-yellow-400 w-10 h-10 rounded-xl flex items-center justify-center"
+      >
+        <i class="fa-solid fa-play text-lg"></i>
+      </span>
+    </div>
+    <div class="w-full flex justify-between mt-10">
+      <span>
+        <label class="text-gray-500"> Abril 10, 2023</label>
+        <h1 class="text-2xl text-black font-bold">Today</h1>
+      </span>
+
+      <button class="rounded-lg bg-black text-white px-4">
+        <i class="fa-solid fa-plus"></i>
+        Add task
+      </button>
+    </div>
+  </div>
+</section>

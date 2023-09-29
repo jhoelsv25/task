@@ -1,0 +1,46 @@
+<section
+  class="w-full h-24 max-md:h-20 flex justify-between bg-white z-50 items-center sticky top-0 px-5"
+>
+  <div class="flex lg:items-end items-center h-full">
+    <h2 class="text-gray-400 font-medium text-xl">Hello, Jhoel!</h2>
+    
+  </div>
+
+  <div class="flex max-md:gap-5 md:flex-row-reverse items-center w-1/5 max-lg:w-1/2 justify-between">
+    <span class="flex items-center gap-3 " >
+        <i class="fa-solid cursor-pointer example-menu-bar-item fa-bell text-xl relative"  [cdkMenuTriggerFor]="notifiication"></i>
+        <i class="fa-solid cursor-pointer example-menu-bar-item fa-envelope text-xl relative"  [cdkMenuTriggerFor]="email"></i>
+    </span>
+
+
+
+    <div class="flex gap-2">
+        <div class="h-10 w-10 ">
+            <img class="h-full w-full rounded-full object-cover object-center" src="https://images.unsplash.com/photo-1487309078313-fad80c3ec1e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        </div>
+        <span class="max-md:hidden">
+            <h2 class="text-black font-semibold">jhoel silvestre</h2>
+            <h4 class="text-gray-300 text-sm">Frontend developer</h4>
+        </span>
+       
+        
+    </div>
+  </div>
+</section>
+<ng-template #email>
+  <div class="absolute w-36 maxh-52 top-16 right-0 bg-slate-300 z-50" cdkMenu>
+    
+    <h2>hola</h2>
+  </div>
+</ng-template>
+<ng-template #notifiication>
+  <div class="absolute w-36 maxh-52 top-16 right-0 bg-slate-300 z-50" cdkMenu>
+    <button class="" cdkMenuItem>Undo</button>
+    <button class="" cdkMenuItem>Redo</button>
+    <hr />
+    <button class="" cdkMenuItem>Cut</button>
+    <button class="" cdkMenuItem>Copy</button>
+    <button class="" cdkMenuItem>Paste</button>
+  </div>
+</ng-template>
+
