@@ -25,7 +25,9 @@ export class DragService {
   protected http = inject(HttpClient);
   protected baseUrl = environment.baseUrl;
   
-  constructor() {}
+  constructor() {
+    this.loadLocalStorage()
+  }
     
 
 
@@ -36,7 +38,7 @@ export class DragService {
         event.previousIndex,
         event.currentIndex
       );
-      //this.saveLocalStorage();
+      this.saveLocalStorage();
     } else if (
       (event.previousContainer.id === 'cdk-drop-list-0' &&
         event.container.id === 'cdk-drop-list-1') ||
@@ -49,7 +51,7 @@ export class DragService {
         event.previousIndex,
         event.currentIndex
       );
-      //this.saveLocalStorage();
+      this.saveLocalStorage();
     }
   }
 
@@ -68,6 +70,37 @@ export class DragService {
       })
     );
   }
+  addTask(task: Task){
+    this._pendient.push(task);
+    this.pendient.set(this._pendient)
+    this.saveLocalStorage()
+  }
 
+  saveLocalStorage() {
+    localStorage.setItem('pendient', JSON.stringify(this._pendient));
+    localStorage.setItem('progress', JSON.stringify(this._progress));
+    localStorage.setItem('finish', JSON.stringify(this._finished));
+  }
+
+  loadLocalStorage() {
+    if (
+      localStorage.getItem('progress') ||
+      localStorage.getItem('pendient') ||
+      localStorage.getItem('finish')
+    ) {
+      if (localStorage.getItem('pendient')) {
+        this._pendient = JSON.parse(localStorage.getItem('pendient')!);
+        this.pendient.set(this._pendient);
+      }
+      if (localStorage.getItem('progress')) {
+        this._progress = JSON.parse(localStorage.getItem('progress')!);
+        this.progress.set(this._progress);
+      }
+      if (localStorage.getItem('finish')) {
+        this._finished = JSON.parse(localStorage.getItem('finish')!);
+        this.finished.set(this._finished);
+      }
+    }
+  }
 
 }

@@ -19,9 +19,9 @@ export class AppComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.teamService.getTeam();
+   /*  this.teamService.getTeam();
     this.friendService.getFriends();
     this.dragService.getData();
-    this.taskService.getTask();
+    this.taskService.getTask(); */
   }
 }

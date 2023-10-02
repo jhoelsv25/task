@@ -6,13 +6,13 @@ import { State } from '../models/enums/state.enum';
 @Injectable({
   providedIn: 'root'
 })
-export class TaskService extends DragService {
+export class TaskService  {
   
 
   constructor() {
-    super();
+   
   }
-  getTask(){
+  /* getTask(){
     this.getData().subscribe(
       {
         next: (res) => {
@@ -35,6 +35,8 @@ export class TaskService extends DragService {
         }
       }
     )
-  }
+  } */
+
+  
 
 }

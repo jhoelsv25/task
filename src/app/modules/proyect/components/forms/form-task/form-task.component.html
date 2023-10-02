@@ -1,1 +1,180 @@
-<p>form-task works!</p>
+<form class="w-full flex flex-col gap-3 items-center" [formGroup]="task">
+  <div class="w-11/12 flex justify-center gap-2 max-md:w-full max-md:flex-col">
+    <div class="mx-auto w-1/2 max-md:w-full">
+      <div>
+        <label
+          for="title"
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+          >Title</label
+        >
+        <input
+          type="text"
+          id="title"
+          class="block w-full rounded-md border py-1.5 px-2 border-gray-300 shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50 read-only:cursor-not-allowed read-only:bg-gray-50 read-only:text-gray-500"
+          placeholder="Task title"
+          formControlName="title"
+        />
+        <p
+          class="mt-1 text-xs text-red-500"
+          *ngIf="
+            task.get('title')?.invalid &&
+            (task.get('title')?.dirty || task.get('title')?.touched)
+          "
+        >
+          {{ getErrorMessage("title") }}
+        </p>
+      </div>
+    </div>
+    <div class="mx-auto w-1/2 max-md:w-full">
+      <div>
+        <label
+          for="level"
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+          >Level</label
+        >
+        <ng-select
+          id="level"
+          bindLabel="level"
+          class="w-full rounded-md border border-gray-300 shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50"
+          formControlName="level"
+          placeholder="Select level"
+        >
+          <ng-option *ngFor="let nivel of nivels" [value]="nivel">
+            {{ nivel | titlecase }}
+          </ng-option>
+        </ng-select>
+        <p
+          class="mt-1 text-xs text-red-500"
+          *ngIf="
+            task.get('level')?.invalid &&
+            (task.get('level')?.dirty || task.get('level')?.touched)
+          "
+        >
+          {{ getErrorMessage("level") }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="w-11/12 flex justify-center gap-2 max-md:w-full max-md:flex-col">
+    <div class="mx-auto w-full">
+      <div>
+        <label
+          for="user"
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5"
+          >User</label
+        >
+        <input
+          type="text"
+          readonly
+          id="user"
+          class="block w-full rounded-md border py-1.5 px-2 border-gray-300 shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50 read-only:cursor-not-allowed read-only:bg-gray-50 read-only:text-gray-500"
+          [placeholder]="user"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="w-11/12 flex justify-center gap-2 max-md:w-full max-md:flex-col">
+    <div class="mx-auto w-1/2 max-md:w-full">
+      <div>
+        <label
+          for="team"
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+          >team</label
+        >
+        <ng-select
+          bindLabel="name"
+          id="team"
+          class="w-full rounded-md border border-gray-300 shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50"
+          formControlName="team"
+          placeholder="Selected team"
+        >
+          <ng-option *ngFor="let team of teams()" [value]="team.title">
+            {{ team.title }}
+          </ng-option>
+        </ng-select>
+        <p
+          class="mt-1 text-xs text-red-500"
+          *ngIf="
+            task.get('team')?.invalid &&
+            (task.get('team')?.dirty || task.get('team')?.touched)
+          "
+        >
+          {{ getErrorMessage("team") }}
+        </p>
+      </div>
+    </div>
+    <div class="mx-auto w-1/2 max-md:w-full">
+      <div>
+        <label
+          for="date"
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+          >Date create</label
+        >
+        <input
+          type="date"
+          id="date"
+          class="block w-full rounded-md border py-1.5 px-2 border-gray-300 shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50 read-only:cursor-not-allowed read-only:bg-gray-50 read-only:text-gray-500"
+          formControlName="date"
+        />
+
+        <p
+          class="mt-1 text-xs text-red-500"
+          *ngIf="
+            task.get('date')?.invalid &&
+            (task.get('date')?.dirty || task.get('date')?.touched)
+          "
+        >
+          {{ getErrorMessage("date") }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-11/12 flex justify-center gap-2 max-md:w-full max-md:flex-col">
+    <div class="mx-auto w-full">
+      <div>
+        <label
+          for="description"
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+          >Description</label
+        >
+        <textarea
+          type="text"
+          id="description"
+          class="block w-full rounded-md border py-1.5 px-2 border-gray-300 shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50 read-only:cursor-not-allowed read-only:bg-gray-50 read-only:text-gray-500"
+          placeholder="description"
+          formControlName="description"
+        >
+        </textarea>
+        <p
+          class="mt-1 text-xs text-red-500"
+          *ngIf="
+            task.get('description')?.invalid &&
+            (task.get('description')?.dirty || task.get('description')?.touched)
+          "
+        >
+          {{ getErrorMessage("description") }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="w-11/12 flex justify-center gap-2 max-md:w-full max-md:flex-col">
+    <div class="mx-auto w-full flex gap-3 justify-end">
+      <button
+        type="button"
+        (click)="close()"
+        class="rounded-lg border border-gray-300 bg-white px-4 py-2 text-center text-sm font-medium text-gray-700 shadow-sm transition-all hover:bg-gray-100 focus:ring focus:ring-gray-100 disabled:cursor-not-allowed disabled:border-gray-100 disabled:bg-gray-50 disabled:text-gray-400"
+      >
+        Cancel
+      </button>
+      <button
+        (click)="save()"
+        [disabled]="task.invalid"
+        type="button"
+        class="rounded-lg border border-yellow-50 bg-black px-5 py-2 text-center text-sm font-medium text-white shadow-sm transition-all hover:opacity-80 focus:ring disabled:cursor-not-allowed focus:ring-neutral-800 disabled:border-black disabled:opacity-60"
+      >
+        save
+      </button>
+    </div>
+  </div>
+</form>

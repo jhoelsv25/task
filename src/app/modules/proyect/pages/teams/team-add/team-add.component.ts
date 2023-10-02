@@ -1,5 +1,6 @@
-import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import { Component, inject } from '@angular/core';
+import { DIALOG_DATA, Dialog, DialogRef } from '@angular/cdk/dialog';
+import { Component, Inject, inject } from '@angular/core';
+import { Team } from '../../../models/interfaces/task.interface';
 
 @Component({
   selector: 'app-team-add',
@@ -7,9 +8,12 @@ import { Component, inject } from '@angular/core';
   styleUrls: ['./team-add.component.scss']
 })
 export class TeamAddComponent {
-  private dialogRef = inject(DialogRef);
+  private dialogRef = inject(DialogRef<TeamAddComponent>);
   public  header:string = 'Add Team'
-
+  constructor( @Inject(DIALOG_DATA) public data: Team) { }
+  addTeam(){
+    console.log('add team')
+  }
   close(){
     this.dialogRef.close()
   }

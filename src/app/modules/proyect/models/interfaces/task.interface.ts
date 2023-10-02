@@ -33,7 +33,7 @@ export interface Profile {
     lastName:    string;
     age:         number;
     description: string;
-    dateCreated: Date;
+    dateCreated: Date |string;
     titleWork:   string;
     avatar:      string;
     cargo:       string;

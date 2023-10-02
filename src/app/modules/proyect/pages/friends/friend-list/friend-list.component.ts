@@ -8,9 +8,7 @@ import { FriendService } from '../../../services/friend.service';
 })
 export class FriendListComponent {
    private friendService = inject(FriendService);
-   public data = computed(() => this.friendService.getFriends());
+   public data = computed(() => this.friendService.friends());
   
-  ngOnInit(): void {
-   // this.data() 
-   }
+  
 }

@@ -1,1 +1,188 @@
-<p>form-team works!</p>
+<form class="w-full flex flex-col gap-3 items-center" [formGroup]="team">
+  <div class="w-11/12 flex justify-center gap-2 max-md:w-full max-md:flex-col">
+    <div class="mx-auto w-1/2 max-md:w-full">
+      <div>
+        <label
+          for="title"
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+          >Title</label
+        >
+        <input
+          type="text"
+          id="title"
+          class="block w-full rounded-md border py-1.5 px-2 border-gray-300 shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500"
+          placeholder="Team title"
+          formControlName="title"
+        />
+        <p
+          class="mt-1 text-xs text-red-500"
+          *ngIf="
+            team.get('title')?.invalid &&
+            (team.get('title')?.dirty || team.get('title')?.touched)
+          "
+        >
+          {{ getErrorMessage("title") }}
+        </p>
+      </div>
+    </div>
+    <div class="mx-auto w-1/2 max-md:w-full">
+      <div>
+        <label
+          for="alias"
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+          >Alias</label
+        >
+        <input
+          type="text"
+          id="alias"
+          class="block w-full rounded-md border py-1.5 px-2 border-gray-300 shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500"
+          placeholder="Team aias"
+          formControlName="alias"
+        />
+        <p
+          class="mt-1 text-xs text-red-500"
+          *ngIf="
+            team.get('alias')?.invalid &&
+            (team.get('alias')?.dirty || team.get('alias')?.touched)
+          "
+        >
+          {{ getErrorMessage("alias") }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="w-11/12 flex justify-center gap-2 max-md:w-full max-md:flex-col">
+    <div class="mx-auto w-full">
+      <div>
+        <label
+          
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+          >Friends</label
+        >
+        <div
+          class="flex w-full h-14 items-center rounded-md border py-1.5 px-2 border-gray-300 dark:bg-gray-200 shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500"
+        >
+          <dd class="flex justify-start -space-x-1.5">
+            <a
+              *ngFor="let item of selectedUsers"
+              class="inline-block group relative top-0 -m-1 cursor-pointer"
+            >
+              <img
+                class="w-10 h-10 rounded-full ring-2 ring-white group-hover:ring-yellow-400 dark:border-slate-200 dark:ring-slate-200"
+                [src]="item.avatar"
+                [alt]="item.name"
+              />
+            </a>
+          </dd>
+        </div>
+        <p class="mt-1 text-xs text-red-500">{{ getErrorMessage("") }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="w-11/12 flex justify-center gap-2 max-md:w-full max-md:flex-col">
+    <div class="mx-auto w-1/2 max-md:w-full">
+      <div>
+        <label
+          for="add-frends"
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+          >Add friends</label
+        >
+        <ng-select
+          id="add-friends"
+          [items]="friends()"
+          class="w-full rounded-md shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50"
+          [multiple]="true"
+          bindLabel="name"
+          formControlName="friends"
+          placeholder="Select friends"
+            (change)="addFriends($event)"
+         
+        >
+         
+        </ng-select>
+        <p
+          class="mt-1 text-xs text-red-500"
+          *ngIf="
+            team.get('friends')?.invalid &&
+            (team.get('friends')?.dirty || team.get('friends')?.touched)
+          "
+        >
+          {{ getErrorMessage("friends") }}
+        </p>
+      </div>
+    </div>
+    <div class="mx-auto w-1/2 max-md:w-full">
+      <div>
+        <label
+          for="dateCreated"
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+          >Date create</label
+        >
+        <input
+          type="date"
+          id="dateCreated"
+          class="block w-full rounded-md border py-1.5 px-2 border-gray-300 shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500"
+          formControlName="dateCreated"
+        />
+
+        <p
+          class="mt-1 text-xs text-red-500"
+          *ngIf="
+            team.get('dateCreated')?.invalid &&
+            (team.get('dateCreated')?.dirty || team.get('dateCreated')?.touched)
+          "
+        >
+          {{ getErrorMessage("dateCreated") }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-11/12 flex justify-center gap-2 max-md:w-full max-md:flex-col">
+    <div class="mx-auto w-full">
+      <div>
+        <label
+          for="description"
+          class="mb-1 dark:text-slate-300 block text-base font-medium text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']"
+          >Description</label
+        >
+        <textarea
+          type="text"
+          id="description"
+          class="block w-full rounded-md border py-1.5 px-2 border-gray-300 shadow-sm focus:border-2 focus:border-yellow-500 focus:outline-none focus:ring-gray-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500"
+          placeholder="Description"
+          formControlName="description"
+        >
+        </textarea>
+        <p
+          class="mt-1 text-xs text-red-500"
+          *ngIf="
+            team.get('description')?.invalid &&
+            (team.get('description')?.dirty || team.get('description')?.touched)
+          "
+        >
+          {{ getErrorMessage("description") }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="w-11/12 flex justify-center gap-2 max-md:w-full max-md:flex-col">
+    <div class="mx-auto w-full flex gap-3 justify-end">
+      <button
+      (click)="close()"
+        type="button"
+        class="rounded-lg border border-gray-300 bg-white px-4 py-2 text-center text-sm font-medium text-gray-700 shadow-sm transition-all hover:bg-gray-100 focus:ring focus:ring-gray-100 disabled:cursor-not-allowed disabled:border-gray-100 disabled:bg-gray-50 disabled:text-gray-400"
+      >
+        Cancel
+      </button>
+      <button
+        (click)="save()"
+        [disabled]="team.invalid"
+        type="button"
+        class="rounded-lg border border-yellow-50 bg-black px-5 py-2 text-center text-sm font-medium text-white shadow-sm transition-all hover:opacity-80 focus:ring disabled:cursor-not-allowed focus:ring-neutral-800 disabled:border-black disabled:opacity-60"
+      >
+        save
+      </button>
+    </div>
+  </div>
+</form>

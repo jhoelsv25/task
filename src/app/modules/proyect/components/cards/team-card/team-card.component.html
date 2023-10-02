@@ -2,10 +2,10 @@
   <h1 class="text-4xl text-black font-bold">My teams</h1>
 
   <filters></filters>
-  <div class="w-full bg-white flex flex-wrap mt-5">
+  <div class="w-full bg-white flex flex-wrap mt-5 overflow-y-auto">
     <div
       *ngFor="let task of teamList()"
-      class="shadow-lg flex-col gap-3 my-2 rounded-xl w-96 max-lg:w-full p-3 bg-white dark:bg-slate-800 relative overflow-hidden flex place-content-between py-3"
+      class="shadow-lg flex-col gap-3 my-2 mx-2 rounded-xl w-96 max-lg:w-full p-3 bg-white dark:bg-slate-800 relative overflow-hidden flex place-content-between py-3"
     >
       <div class="flex items-center justify-between">
         <span class="uppercase text-black font-bold group-hover:text-gray-600">

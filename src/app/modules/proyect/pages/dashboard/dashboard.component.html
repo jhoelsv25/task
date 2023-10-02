@@ -45,11 +45,11 @@
     </div>
     <div class="w-full flex justify-between mt-10">
       <span>
-        <label class="text-gray-500"> Abril 10, 2023</label>
+        <label class="text-gray-500"> {{ toDay | date }}</label>
         <h1 class="text-2xl text-black font-bold">Today</h1>
       </span>
 
-      <button class="rounded-lg bg-black text-white px-4">
+      <button (click)="ShowModal()" class="rounded-lg bg-black text-white px-4">
         <i class="fa-solid fa-plus"></i>
         Add task
       </button>

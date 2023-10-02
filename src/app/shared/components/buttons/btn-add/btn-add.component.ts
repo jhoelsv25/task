@@ -3,7 +3,6 @@ import { Component, Input, inject } from '@angular/core';
 import { Task } from 'src/app/modules/proyect/models/interfaces/task.interface';
 import { Modal } from 'src/app/modules/proyect/models/types/madal.type';
 import { TaskAddComponent } from 'src/app/modules/proyect/pages/proyects/task-add/task-add.component';
-import { ModalService } from 'src/app/modules/proyect/services/modal.service';
 
 @Component({
   selector: 'btn-add',

@@ -14,18 +14,20 @@ export class TaskListComponent implements OnInit {
   private taskService = inject(TaskService);
   private dragService = inject(DragService);
   public nameModal : Modal = 'task-list'
-  public taskPendient = computed(() => this.taskService.pendient());
-  public taskProgress = computed(() => this.taskService.progress());
-  public taskFinished = computed(() => this.taskService.finished());
+  public taskPendient = computed(() => this.dragService.pendient());
+  public taskProgress = computed(() => this.dragService.progress());
+  public taskFinished = computed(() => this.dragService.finished());
   public qtyPendient = signal<number>(0);
   public qtyProgress = signal<number>(0);
   public qtyFinished = signal<number>(0);
 
   public people: any[] = ['Today', 'This week', 'This month','This year'];
   public peopleLoading = false;
+  constructor(){
+    this.qty();
+  }
  
   onDrop(event: CdkDragDrop<Task[]>) {
-    console.log(event);
     this.dragService.dragDrop(event);
     this.qty();
   }
