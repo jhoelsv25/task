@@ -1,1 +1,34 @@
-<p>friend-add works!</p>
+<div
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-0"
+>
+  <div
+    class="mx-auto w-full overflow-hidden rounded-lg bg-white shadow-xl sm:max-w-sm"
+  >
+    <div class="relative p-5">
+      <div class="text-center">
+        <div
+          class="mx-auto mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-orange-100 text-orange-500"
+        >
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-medium text-secondary-900">
+            Friends component does not work yet.
+          </h3>
+          <div class="mt-2 text-sm text-secondary-500">
+            At the moment this function is not yet available. will be available soon
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 flex justify-end gap-3">
+        <button
+        (click)="close()"
+          type="button"
+          class="flex-1 rounded-lg border border-orange-500 bg-orange-500 px-4 py-2 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-orange-700 hover:bg-orange-700 focus:ring focus:ring-orange-200 disabled:cursor-not-allowed disabled:border-orange-300 disabled:bg-orange-300"
+        >
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

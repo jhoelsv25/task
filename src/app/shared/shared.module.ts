@@ -6,6 +6,8 @@ import { BtnDeleteComponent } from './components/buttons/btn-delete/btn-delete.c
 import { ConfirmDeleteComponent } from './components/modals/confirm-delete/confirm-delete.component';
 import { DialogModule } from '@angular/cdk/dialog';
 import { FiltersComponent } from './components/others/filters/filters.component';
+import { NotFoundComponent } from './components/others/not-found/not-found.component';
+import { ConfirmSaveComponent } from './components/modals/confirm-save/confirm-save.component';
 
 
 
@@ -15,7 +17,9 @@ import { FiltersComponent } from './components/others/filters/filters.component'
     BtnAddComponent,
     BtnDeleteComponent,
     ConfirmDeleteComponent,
-    FiltersComponent
+    FiltersComponent,
+    NotFoundComponent,
+    ConfirmSaveComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +29,8 @@ import { FiltersComponent } from './components/others/filters/filters.component'
     SearchComponent,
     BtnAddComponent,
     BtnDeleteComponent,
-    FiltersComponent
+    FiltersComponent,
+    ConfirmSaveComponent
   ]
 })
 export class SharedModule { }
