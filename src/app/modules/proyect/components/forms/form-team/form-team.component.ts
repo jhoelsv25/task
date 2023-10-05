@@ -29,7 +29,7 @@ export class FormTeamComponent implements OnInit{
     friends: [[], [Validators.required]]
   });
   ngOnInit(): void {
-    console.log(this.selectedUsers);
+   
   }
 
   addFriends(data:Profile){

@@ -22,7 +22,6 @@ export class TeamListComponent implements OnInit {
       data:this.team
     })
     dialogRef.closed.subscribe(res =>{
-      console.log(res);
     })
   }
 }

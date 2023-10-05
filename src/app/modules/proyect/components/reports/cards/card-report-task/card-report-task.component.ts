@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Task } from 'src/app/modules/proyect/models/interfaces/task.interface';
 
 @Component({
   selector: 'card-report-task',
@@ -6,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class CardReportTaskComponent {
 
+  @Input() taskList!:Task[]
 }

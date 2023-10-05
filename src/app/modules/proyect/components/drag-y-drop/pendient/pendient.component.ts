@@ -12,7 +12,7 @@ export class PendientComponent implements OnInit {
   @Input() taskLists!: Task[];
 
   ngOnInit(): void {
-    //console.log(this.taskLists);
+    console.log(this.taskLists);
   }
   onDrop(event: CdkDragDrop<Task[] >) {
     this._dragDrop.dragDrop(event);

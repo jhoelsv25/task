@@ -28,8 +28,8 @@ export class FormDashboardComponent implements OnInit {
     if (partes.length === 3) {
       const año = partes[2];
       const mes = partes[1];
-      const día = partes[0].padStart(2, '0');
-      this.dateToday = `${año}-${día}-${mes}`;
+      const dia = partes[0].padStart(2, '0');
+      this.dateToday = `${año}-${mes}-${dia}`;
     }
   }
 

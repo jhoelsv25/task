@@ -25,7 +25,7 @@ export class DashboardComponent {
       data:this.task
     })
     dialogRef.closed.subscribe(res =>{
-      console.log(res);
+
     })
   }
 }
