@@ -1,0 +1,59 @@
+<section class="w-full mt-5 flex-1">
+  <ul class="flex gap-6 justify-between w-full pb-2 mt-3 xl:gap-10 border-b">
+    <li class="text-yellow-400 font-medium font-sans"><a href="">Today</a></li>
+    <li class="text-gray-300 font-medium font-sans"><a href="">filter</a></li>
+  </ul>
+  <div class="overflow-y-auto min-h-[200px] max-h-[550px]">
+    <section class="w-full pr-2">
+      <div *ngFor="let task of tasks() | HourSort; let i= index  " class="flex gap-5 w-full h-full" >
+        <div class="relative w-8 flex justify-center mt-2">
+          <span
+            class="h-4 w-4 absolute rounded-full flex justify-center items-center bg-white border-dashed border border-yellow-300"
+          >
+            <i class="fa-solid fa-circle text-[10px] text-yellow-300"></i>
+          </span>
+          <div class="w-[2px] h-auto -pr-5 bg-yellow-300"></div>
+        </div>
+        <div
+        [ngClass]="{'bg-yellow-400': i % 2 === 0}"
+          class="flex flex-col bg-white  my-2 gap-4 w-full rounded-xl shadow-lg py-4 px-5"
+        >
+          <div class="flex justify-between">
+            <span>
+              <h2 class="text-black text-base font-semibold">
+                {{ task.title }}
+              </h2>
+              <h4 class="text-gray-700 font-sans">
+                {{ task.description }}
+              </h4>
+            </span>
+            <h5 class="font-sans text-black font-medium text-sm pl-5">
+              {{ task.hour }}
+            </h5>
+          </div>
+          <div class="flex justify-between items-center">
+            <dd class="flex justify-start -space-x-1.5">
+              <a
+                *ngFor="let item of task.team"
+                href="#"
+                class="inline-block -m-1"
+              >
+                <img
+                  class="w-7 h-7 rounded-full ring-2 ring-white group-hover:ring-cyan-400 dark:border-slate-800 dark:ring-slate-800"
+                  [src]="item.avatar"
+                  [alt]="item.name"
+                />
+              </a>
+            </dd>
+            <span
+              class="w-8 h-8 cursor-pointer rounded-lg bg-black flex justify-center items-center"
+            >
+              <i class="fa-solid fa-check text-white"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+  </div>
+</section>

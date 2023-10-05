@@ -30,6 +30,9 @@ import {CdkMenuModule} from '@angular/cdk/menu';
 import { DialogModule} from '@angular/cdk/dialog';
 import { FormTaskComponent } from './components/forms/form-task/form-task.component';
 import { FormTeamComponent } from './components/forms/form-team/form-team.component';
+import { CardDashboardComponent } from './components/tasks/cards/card-dashboard/card-dashboard.component';
+import { FormDashboardComponent } from './components/tasks/forms/form-dashboard/form-dashboard.component';
+import { FilterHourPipe } from './pipes/filter-hour.pipe';
 
 
 
@@ -56,7 +59,10 @@ import { FormTeamComponent } from './components/forms/form-team/form-team.compon
         CardReportTaskComponent,
         CardReportTeamComponent,
         FormTaskComponent,
-        FormTeamComponent
+        FormTeamComponent,
+        CardDashboardComponent,
+        FormDashboardComponent,
+        FilterHourPipe
     ],
 
     imports: [

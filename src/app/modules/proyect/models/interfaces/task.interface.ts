@@ -38,3 +38,12 @@ export interface Profile {
     avatar:      string;
     cargo:       string;
 }
+export interface Tasklist {
+    title: string;
+    description: string;
+    team: Profile[];
+    nivel: Nivel;
+    state:State
+    date:Date | string;
+    hour:string;
+  }

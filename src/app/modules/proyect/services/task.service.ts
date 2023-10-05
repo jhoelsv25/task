@@ -1,42 +1,33 @@
 import { Injectable, signal } from '@angular/core';
 import { DragService } from './drag.service';
-import { Task } from '../models/interfaces/task.interface';
+import { Task, Tasklist } from '../models/interfaces/task.interface';
 import { State } from '../models/enums/state.enum';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class TaskService  {
-  
+export class TaskService {
+  private _taskList: Tasklist[] = [];
+  public taskList = signal<Tasklist[]>(this._taskList);
 
   constructor() {
-   
+    this.loadLocalStorage()
   }
-  /* getTask(){
-    this.getData().subscribe(
-      {
-        next: (res) => {
-          if( res !== null){
-            const task = res.data.task;
-            task.forEach(taskArray=>{
-              if(taskArray.state === State.Pendient){
-                this._pendient.push(taskArray);
-              }else if(taskArray.state === State.Progress){
-                this._progress.push(taskArray);
-              }else if(taskArray.state === State.Finished){
-                this._finished.push(taskArray);
-              }
-            })
-            this.pendient.set(this._pendient);
-            this.progress.set(this._progress);
-            this.finished.set(this._finished);
 
-          }
-        }
-      }
-    )
-  } */
+  addTaskList(taskList: Tasklist) {
+    this._taskList.push(taskList);
+    this.taskList.set(this._taskList);
+    this.saveLocalStorage()
+  }
 
-  
-
+  private saveLocalStorage() {
+    localStorage.setItem('tasklist', JSON.stringify(this._taskList));
+  }
+  private loadLocalStorage() {
+    const teamData = localStorage.getItem('tasklist');
+    if (teamData) {
+      this._taskList = JSON.parse(teamData);
+      this.taskList.set(this._taskList);
+    }
+  }
 }
