@@ -7,10 +7,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import {  IUser, Task } from '../models/interfaces/task.interface';
+import { IUser, Task } from '../models/interfaces/task.interface';
 import { Nivel } from '../models/enums/nivel.enum';
 import { State } from '../models/enums/state.enum';
-
 
 @Injectable({
   providedIn: 'root',
@@ -19,17 +18,19 @@ export class DragService {
   protected _pendient: Task[] = [];
   protected _progress: Task[] = [];
   protected _finished: Task[] = [];
+  protected http = inject(HttpClient);
+  protected baseUrl = environment.baseUrl;
   public pendient = signal<Task[]>(this._pendient);
   public progress = signal<Task[]>(this._progress);
   public finished = signal<Task[]>(this._finished);
-  protected http = inject(HttpClient);
-  protected baseUrl = environment.baseUrl;
-  
-  constructor() {
-    this.loadLocalStorage()
-  }
-    
+  public qtyPendient = signal<number>(0);
+  public qtyProgress = signal<number>(0);
+  public qtyFinished = signal<number>(0);
 
+  constructor() {
+    this.loadLocalStorage();
+    this.taskQty();
+  }
 
   public dragDrop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
@@ -52,10 +53,11 @@ export class DragService {
         event.currentIndex
       );
       this.saveLocalStorage();
+      this.taskQty();
     }
   }
 
-  getData(): Observable<IUser| null > {
+  getData(): Observable<IUser | null> {
     const email = 'admin@example.com';
     const password = 'admin';
     return this.http.get<IUser[]>(this.baseUrl).pipe(
@@ -63,17 +65,18 @@ export class DragService {
         const value = res.find(
           (user) => user.email === email && user.password === password
         );
-        return value ? value : {}
+        return value ? value : {};
       }),
       catchError((err) => {
         return of('Hubo un error inesperado', err);
       })
     );
   }
-  addTask(task: Task){
+  addTask(task: Task) {
     this._pendient.push(task);
-    this.pendient.set(this._pendient)
-    this.saveLocalStorage()
+    this.pendient.set(this._pendient);
+    this.saveLocalStorage();
+    this.taskQty();
   }
 
   saveLocalStorage() {
@@ -103,4 +106,9 @@ export class DragService {
     }
   }
 
+  private taskQty() {
+    this.qtyFinished.set(this.finished().length);
+    this.qtyProgress.set(this.progress().length);
+    this.qtyPendient.set(this.pendient().length);
+  }
 }

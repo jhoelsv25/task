@@ -8,7 +8,7 @@
             <div class="flex w-full max-lg:flex-col gap-3">
                 <div class="w-1/4 max-lg:w-1/2 max-md:w-full px-3">
                     <div class="rounded-lg bg-white h-24 w-full shadow-md">
-                        <div class="items-center justify-around flex h-full">
+                        <div class="items-center justify-between px-5 flex h-full">
                             <span class="flex flex-col">
                                 <h2>Teams</h2>
                                 <strong>+54</strong>
@@ -24,10 +24,10 @@
                 </div>
                 <div class="w-1/4 max-lg:w-1/2 max-md:w-full px-3">
                     <div class="rounded-lg bg-white h-24 w-full shadow-md">
-                        <div class="items-center justify-around flex h-full">
+                        <div class="items-center justify-between px-5 flex h-full">
                             <span class="flex flex-col">
                                 <h2>Task todo</h2>
-                                <strong>+54</strong>
+                                <strong>{{qtyPendient()}}</strong>
                             </span>
                             
                             <span class="w-12 h-12 rounded-xl bg-yellow-400 flex items-center justify-center">
@@ -39,10 +39,10 @@
                 </div>
                 <div class="w-1/4 max-lg:w-1/2 max-md:w-full px-3">
                     <div class="rounded-lg bg-white h-24 w-full shadow-md">
-                        <div class="items-center justify-around flex h-full">
+                        <div class="items-center justify-between px-5 flex h-full">
                             <span class="flex flex-col">
                                 <h2>In progress</h2>
-                                <strong>+54</strong>
+                                <strong>{{qtyProgress()}}</strong>
                             </span>
                             
                             <span class="w-12 h-12 rounded-xl bg-yellow-400 flex items-center justify-center">
@@ -54,10 +54,10 @@
                 </div>
                 <div class="w-1/4 max-lg:w-1/2 max-md:w-full px-3">
                     <div class="rounded-lg bg-white h-24 w-full shadow-md">
-                        <div class="items-center justify-around flex h-full">
+                        <div class="items-center justify-between px-5 flex h-full">
                             <span class="flex flex-col">
                                 <h2>Finished</h2>
-                                <strong>+54</strong>
+                                <strong> {{qtyFinished()}} </strong>
                             </span>
                             
                             <span class="w-12 h-12 rounded-xl bg-yellow-400 flex items-center justify-center">
