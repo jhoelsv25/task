@@ -7,8 +7,7 @@ import { State } from '../models/enums/state.enum';
   providedIn: 'root',
 })
 export class TaskService {
-  private _taskList: Tasklist[] = [];
-  public taskList = signal<Tasklist[]>(this._taskList);
+  public tasks = signal<Tasklist[]>([]);
   private today: string;
 
   constructor() {
@@ -17,29 +16,29 @@ export class TaskService {
     const month = date[1];
     const year = date[2];
     this.today = `${year}-${month}-${day}`;
-
-    console.log(this.today);
     this.loadLocalStorage();
   }
 
   addTaskList(taskList: Tasklist) {
-    this._taskList.push(taskList);
-    const newData = this._taskList.filter((value) => value.date === this.today);
-    this.taskList.set(newData);
+    this.tasks.update((value) => {
+      return value.filter((res) => res.date === this.today).concat(taskList);
+    });
+
     this.saveLocalStorage();
   }
 
   private saveLocalStorage() {
-    localStorage.setItem('tasklist', JSON.stringify(this._taskList));
+    localStorage.setItem('tasklist', JSON.stringify(this.tasks()));
   }
   private loadLocalStorage() {
     const data = localStorage.getItem('tasklist');
     if (data) {
-      this._taskList = JSON.parse(data);
-      const newData = this._taskList.filter(
-        (value) => value.date === this.today
-      );
-      this.taskList.set(newData);
+      const tasks = JSON.parse(data);
+      this.tasks.update((prev) => {
+        return tasks
+          .filter((res: { date: string }) => res.date === this.today)
+          .concat(prev);
+      });
     }
   }
 }
